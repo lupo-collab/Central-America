@@ -1,3 +1,8 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Centro América — Field Itinerary</title>
 <style>
 /* ============================================================
@@ -179,6 +184,8 @@ section{padding:clamp(3rem,7vw,5rem) 0;}
 .map-dense-index{display:flex; flex-wrap:wrap; align-items:center; gap:.5rem; margin-top:.9rem; padding-top:.9rem; border-top:1px solid var(--line-soft);}
 .map-dense-index .mdi-label{font-size:.78rem; color:var(--ink-faint); margin-right:.2rem;}
 .map-dense-index .chip{padding:.32rem .7rem;}
+.map-full-index{display:none; flex-wrap:wrap; gap:.5rem; margin-top:1.2rem; padding-top:1.2rem; border-top:1px solid var(--line-soft);}
+.map-full-index .chip{padding:.32rem .7rem; cursor:pointer;}
 
 /* ---------- TIMELINE ---------- */
 .timeline-scale{display:flex; gap:3px; overflow-x:auto; padding-bottom:.9rem;}
@@ -298,8 +305,16 @@ footer p{font-size:.78rem; color:var(--ink-faint); font-family:var(--font-mono);
   .stop-head{grid-template-columns:1fr auto; }
   .stop-scene{display:none;}
   .hero-top{flex-direction:column;}
+  .map-pin text{display:none;}
+  .map-dense-index{display:none;}
+  .map-full-index{display:flex;}
+  .rail-btn{width:2.6rem; height:2.6rem;}
+  .stop-toggle{width:2.75rem; height:2.75rem;}
+  .day-cell{width:44px;}
 }
 </style>
+</head>
+<body>
 
 <div class="nav">
   <div class="nav-inner container">
@@ -575,8 +590,8 @@ const STOPS = [
   {
     id:'antigua', code:'GT · 10', cc:'gt', country:'Guatemala', name:'Antigua', area:'two passes through',
     dateLabel:'Aug 23–24 & 26–27', nights:'1 + 1', dayStart:18, dayEnd:18, scene:'colonial-volcano', coords:{x:129,y:108}, dense:true,
-    hotel:{status:'suggested', name:'Adra Hostal or Good Hotel Antigua', price:'~€60–110 / night (estimate)', source:'not booked yet',
-      note:'Same base works for both passes if it has room both times.'},
+    hotel:{status:'booked', name:'Hotel Aurora (Aug 23–24) · Jardín de Stela Hotel (Aug 26–27)', price:'€80 + €47', source:'Booking.com',
+      note:'Two separate 1-night bookings — the route passes through Antigua twice.'},
     transport:'First pass: Hedman Alas bus + shuttle from Copán, ~6h, arriving evening. Second pass: shuttle back from Atitlán, then the 5pm Acatenango briefing @ OX.',
     activities:[
       'First pass — confirm the Acatenango booking the night you arrive',
@@ -589,8 +604,8 @@ const STOPS = [
   {
     id:'atitlan', code:'GT · 11', cc:'gt', country:'Guatemala', name:'Lake Atitlán', area:'Panajachel / San Marcos / San Juan',
     dateLabel:'Aug 24 – 26', nights:2, dayStart:19, dayEnd:20, scene:'crater-lake-big', coords:{x:97,y:94}, dense:true,
-    hotel:{status:'suggested', name:'La Casa del Mundo, Jaibalito', price:'~€60–100 / night (estimate)', source:'not booked — sells out early',
-      note:'Boat-access-only cliffside lodge. Book ahead — this and Bambuda in Bocas sell out first.'},
+    hotel:{status:'booked', name:'Villa Santa Catarina', price:'€170 total · 2 nights', source:'Booking.com',
+      note:'Lakeside hotel near Panajachel.'},
     transport:'Shuttle to Panajachel, ~2.5h, then everything moves by lancha.',
     activities:[
       'San Juan La Laguna — weaving co-ops and street art',
@@ -844,7 +859,7 @@ const BOOKING_CHECKLIST = [
   ['acatenango-book','Acatenango overnight, Aug 27–28', true],
   ['caribe','Caribe Shuttle, Bocas → La Fortuna', true],
   ['leon-shuttle','León → El Salvador shuttle, booked ahead', true],
-  ['atitlan-lodge','Lake Atitlán lodge — sells out first, not yet booked', false],
+  ['atitlan-lodge','Lake Atitlán lodge — Villa Santa Catarina, booked', true],
   ['gc-hotel','Aug 28 night: Guatemala City airport hotel', true],
   ['offline','Download the UA2007 booking offline', false],
   ['insurance','Travel insurance with weather-disruption & hiking cover', false],
@@ -1044,6 +1059,16 @@ function renderMap(){
     $('#mapLegend').after(wrap);
     wrap.querySelectorAll('button').forEach(b=>b.addEventListener('click', ()=>jumpToStop(b.dataset.stop)));
   }
+
+  // The inline map labels become illegible at phone widths (fixed viewBox scales down
+  // with the container), so on mobile they're hidden via CSS and replaced by this
+  // always-tappable, always-legible index of every stop.
+  const fullIndex = document.createElement('div');
+  fullIndex.className = 'map-full-index';
+  fullIndex.innerHTML = STOPS.map((s,i)=>
+    `<button class="chip" data-stop="${s.id}"><span class="sw" style="background:${CCOLOR(s.cc)}"></span>${i+1} · ${s.name}</button>`).join('');
+  $('.map-wrap').appendChild(fullIndex);
+  fullIndex.querySelectorAll('button').forEach(b=>b.addEventListener('click', ()=>jumpToStop(b.dataset.stop)));
 }
 function showMapTip(pinEl){
   const stop = STOP(pinEl.dataset.stop);
@@ -1307,3 +1332,5 @@ renderPractical();
 initNavScroll();
 
 </script>
+</body>
+</html>
