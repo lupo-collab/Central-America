@@ -337,7 +337,7 @@ footer p{font-size:.78rem; color:var(--ink-faint); font-family:var(--font-mono);
         <p class="eyebrow">Field itinerary — northbound overland</p>
         <h1>Centro Am&eacute;rica<br><em>Grand Tour</em></h1>
         <p class="hero-route">Panam&aacute; <span class="arrow">→</span> Costa Rica <span class="arrow">→</span> Nicaragua <span class="arrow">→</span> El Salvador <span class="arrow">→</span> Honduras <span class="arrow">→</span> Guatemala</p>
-        <p class="hero-lede">Twenty-three nights, one overland line north, five live volcanoes and a Caribbean coast to start. Boutique guesthouses throughout — roughly &euro;3,800&ndash;4,150 per person all-in, flights included. Built from the booked itinerary: dates and reservations below are the real ones.</p>
+        <p class="hero-lede">Twenty-three nights, one overland line north, five live volcanoes and a Caribbean coast to start. Boutique guesthouses throughout — roughly &euro;3,850&ndash;4,200 per person all-in, flights included. Built from the booked itinerary: dates and reservations below are the real ones.</p>
       </div>
     </div>
     <div class="hero-stats" id="heroStats"></div>
@@ -526,8 +526,8 @@ const STOPS = [
   },
   {
     id:'granada', code:'NI · 05', cc:'ni', country:'Nicaragua', name:'Granada', area:'Lake Nicaragua',
-    dateLabel:'Aug 14 – 16', nights:2, dayStart:9, dayEnd:10, scene:'colonial-lake', coords:{x:455,y:278},
-    hotel:{status:'booked', name:'Hotel con Corazón', price:'€98 total · 2 nights', source:'Booking.com',
+    dateLabel:'Aug 14 – 15', nights:1, dayStart:9, dayEnd:9, scene:'colonial-lake', coords:{x:455,y:278},
+    hotel:{status:'booked', name:'Hotel con Corazón', price:'~€49 total · 1 night (est. — booked as 2 nights at €98, shortened by a night)', source:'Booking.com',
       note:'Social enterprise — profits fund local education.'},
     transport:'Hotel-organized transfer from Ometepe — $50 total, confirm the departure time against the ferry schedule.',
     activities:[
@@ -535,22 +535,22 @@ const STOPS = [
       '365 isletas boat tour on Lake Nicaragua',
       'Masaya volcano night tour — a live lava lake seen from a railing',
     ],
-    tip:'Go to Masaya after dark and expect queues (~€30 entry). It is one of the very few places on earth you can look directly into an active lava lake.',
+    tip:"Down to one night — you'll arrive from Ometepe with a partial afternoon. Pick Las Isletas (achievable in daylight) or the Masaya night tour, not both; trying to fit both plus the historic center into one abbreviated day is a stretch.",
     highlight:true,
   },
   {
     id:'leon', code:'NI · 06', cc:'ni', country:'Nicaragua', name:'León', area:'',
-    dateLabel:'Aug 16 – 17', nights:1, dayStart:11, dayEnd:11, scene:'colonial-white', coords:{x:392,y:245},
-    hotel:{status:'booked', name:'Hotel El Convento', price:'€121 total · 1 night', source:'Booking.com',
+    dateLabel:'Aug 15 – 17', nights:2, dayStart:10, dayEnd:11, scene:'colonial-white', coords:{x:392,y:245},
+    hotel:{status:'booked', name:'Hotel El Convento', price:'~€242 total · 2 nights (est. — booked as 1 night at €121, extended by a night)', source:'Booking.com',
       note:'Built into a former convent.'},
-    transport:'Hotel-organized transfer from Granada — $50 total, departs ~12:00 noon.',
+    transport:'Hotel-organized transfer from Granada — $50 total, departs ~12:00 noon, arriving León early afternoon.',
     activities:[
       'Cerro Negro volcano boarding — walk up (45–60 min), then ride a board down the ash cone at up to 70–80 km/h; the single most-recommended thing to do in León (~$40, ~half a day)',
-      'Cathedral rooftop — Central America\'s largest cathedral, walk the white dome at sunset',
+      'Cathedral rooftop — Central America\'s largest cathedral, walk the white dome, best at sunset',
       'Wander the historic center — revolutionary murals, colonial churches, shaded plazas',
-      'Las Peñitas beach, ~20 min away — sunset, surf, dinner on the water if the day allows',
+      'Las Peñitas beach, ~20 min away — sunset, surf, dinner on the water',
     ],
-    tip:"Only one night here. Cerro Negro needs a half day, so it wins over everything else if you have to choose — the cathedral roof and center can still fit around it. Fitter hikers rate the Telica volcano trek (live crater, big views) even higher than Cerro Negro, but it's a longer day — worth asking locally if you have the legs for it after Arenal and Ometepe.",
+    tip:"Two nights now, so there's room to do it properly: historic center and cathedral roof on the arrival afternoon/evening, Cerro Negro boarding on the full free day, Las Peñitas for sunset after. Fitter hikers rate the Telica volcano trek (live crater, big views) even higher than Cerro Negro if you'd rather trade the boarding for a longer hike.",
     highlight:true,
   },
   {
@@ -657,7 +657,7 @@ const MOMENTS = [
     text:'One of the very few places on earth you can look directly into an active lava lake from a railing.'},
   {when:'Aug 19–21 · El Salvador', title:'Santa Ana crater lake', stopId:'santa-ana',
     text:'Two hours of walking for a turquoise lake inside a live crater. Best effort-to-payoff ratio on the route.'},
-  {when:'Aug 16–17 · Nicaragua', title:'Cerro Negro boarding', stopId:'leon',
+  {when:'Aug 15–17 · Nicaragua', title:'Cerro Negro boarding', stopId:'leon',
     text:'Sprint down a live black cinder cone on a plywood sled. Absurd, brief, unforgettable.'},
   {when:'Aug 21–23 · Honduras', title:'Copán’s Hieroglyphic Stairway', stopId:'copan',
     text:'The longest Maya text in existence, 63 steps of it, with scarlet macaws overhead.'},
@@ -675,9 +675,9 @@ const DAYS = [
   {d:6,date:'Aug 11',stop:'la-fortuna',travel:false, note:'Free day at Arenal. Morning: Arenal 1968 lava trail. Evening: La Fortuna waterfall for a cold swim, then hot springs — skip Tabacón, the free river by the road bridge is the same water.'},
   {d:7,date:'Aug 12',stop:'ometepe',travel:true, note:'La Fortuna → Ometepe (Nicaragua). Arena Shuttle booked: 08:00 pickup → Peñas Blancas border ~12:30 → San Jorge ferry ~15:00 → ferry 16:00/16:30 → arrive ~17:30. Bring cash — border fees plus $187.50 due on arrival.'},
   {d:8,date:'Aug 13',stop:'ometepe',travel:false, note:"Free day on Ometepe — skip the volcano climbs, both eat the whole day. Rent a scooter, Ojo de Agua spring pool, Charco Verde Nature Reserve (howler monkeys, iguanas), Punta Jesús María sandbar at sunset."},
-  {d:9,date:'Aug 14',stop:'granada',travel:true, note:'Ometepe → Granada. Hotel-organized transfer, $50 total — confirm the departure time against the ferry schedule.'},
-  {d:10,date:'Aug 15',stop:'granada',travel:false, note:'Free day in Granada. Calle La Calzada evening passeggiata, 365 isletas boat tour, Masaya volcano night tour — a live lava lake from a railing (~€30, go after dark, queues form).'},
-  {d:11,date:'Aug 16',stop:'leon',travel:true, note:'Granada → León. Hotel-organized transfer, $50 total, departs ~12:00. One night only — Cerro Negro boarding needs a half day and wins over everything else if you have to choose.'},
+  {d:9,date:'Aug 14',stop:'granada',travel:true, note:'Ometepe → Granada. Hotel-organized transfer, $50 total — confirm the departure time against the ferry schedule. Just one night now — pick Las Isletas or the Masaya night tour, not both.'},
+  {d:10,date:'Aug 15',stop:'leon',travel:true, note:'Granada → León. Hotel-organized transfer, $50 total, departs ~12:00 — arrives León early afternoon. Historic center and cathedral rooftop at sunset once you\'re settled.'},
+  {d:11,date:'Aug 16',stop:'leon',travel:false, note:'Free day in León. Cerro Negro volcano boarding (~half day, ~$40) is the headline activity — Las Peñitas beach for sunset after, or swap in the Telica volcano trek if you\'d rather trade it for a longer hike.'},
   {d:12,date:'Aug 17',stop:'el-zonte',travel:true, note:'León → El Zonte (El Salvador). Gekko transfer, 7:30am pickup at the hotel.'},
   {d:13,date:'Aug 18',stop:'el-zonte',travel:false, note:'Free day at El Zonte. Surf lesson at Sunzal, Tamanique waterfall hike, sunset on the black sand — swim where the surf schools are, rip currents are real.'},
   {d:14,date:'Aug 19',stop:'santa-ana',travel:true, note:'El Tunco → Santa Ana. Easy local transfer.'},
@@ -1262,13 +1262,14 @@ function renderPractical(){
     </div>
     <div class="pcard">
       <h3>Money &amp; budget</h3>
-      <p style="font-size:.87rem;color:var(--ink-dim)">Trip total <strong style="color:var(--ink)">~€3,800–4,150 per person</strong> (~€7,650–8,300 for two) — flights, hotels, transport and a daily allowance for food, activities and incidentals.</p>
+      <p style="font-size:.87rem;color:var(--ink-dim)">Trip total <strong style="color:var(--ink)">~€3,850–4,200 per person</strong> (~€7,700–8,400 for two) — flights, hotels, transport and a daily allowance for food, activities and incidentals.</p>
       <table class="budget-table">
         <tr><td>Flights — Milan ↔ Panama / Guatemala (both)</td><td>€2,900</td></tr>
-        <tr><td>Hotels, 23 nights (both)</td><td>€1,598</td></tr>
+        <tr><td>Hotels, 23 nights (both)</td><td>~€1,670</td></tr>
         <tr><td>Local transport &amp; transfers (both)</td><td>~€1,075</td></tr>
         <tr><td>Food, activities &amp; incidentals — ~€45–60pp/day (both)</td><td>~€2,070–2,760</td></tr>
       </table>
+      <p style="font-size:.72rem;color:var(--ink-faint);margin-top:.4rem">Granada/León hotel costs are estimated — the nights shifted (1 less in Granada, 1 more in León) but the sheet still shows the old per-stay totals.</p>
       <p style="font-size:.78rem;color:var(--ink-faint);margin-top:1rem">Transport breakdown:</p>
       <table class="budget-table">${TRANSFERS.map(([n,p])=>`<tr><td>${n}</td><td>${p}</td></tr>`).join('')}</table>
       <ul class="note-list">
